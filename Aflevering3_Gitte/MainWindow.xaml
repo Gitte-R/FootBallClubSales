@@ -1,0 +1,73 @@
+﻿<Window x:Class="Aflevering3_Gitte.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Aflevering3_Gitte"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="900">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Column="1" Grid.Row="1" Text="Billetter solgt:"/>
+        <TextBlock Grid.Column="1" Grid.Row="2" Text="TV kanaler dækning:"/>
+        <TextBlock Grid.Column="1" Grid.Row="3" Text="Besøger sportbutik:"/>
+        <TextBlock Grid.Column="1" Grid.Row="4" Text="Motionscenter abonnement:"/>
+        <TextBlock Grid.Column="1" Grid.Row="5" Text="Tilskuer mødt op i %:"/>
+        <TextBox Grid.Column="2" Grid.Row="1" Width="120" Margin="20,0,20,0" x:Name="TxtTicketsSold"/>
+        <TextBox Grid.Column="2" Grid.Row="2" Width="120" Margin="20,0,20,0" x:Name="TxtTVChannels"/>
+        <TextBox Grid.Column="2" Grid.Row="3" Width="120" Margin="20,0,20,0" x:Name="TxtStoreVisitors"/>
+        <TextBox Grid.Column="2" Grid.Row="4" Width="120" Margin="20,0,20,0" x:Name="TxtGymSubscriptions"/>
+        <TextBox Grid.Column="2" Grid.Row="5" Width="120" Margin="20,0,20,0" x:Name="TxtSpectatorsPercentage"/>
+        <TextBlock Grid.Column="3" Grid.Row="6" Text="Total salg:"/>
+        <TextBlock Grid.Column="3" Grid.Row="7" Text="Total indtjening:"/>
+        <TextBox Grid.Column="4" Grid.Row="6" Width="180" Margin="20,0,20,0" x:Name="TxtSalesTotal" IsReadOnly="True"/>
+        <TextBox Grid.Column="4" Grid.Row="7" Width="180" Margin="20,0,20,0" x:Name="TxtEarningsTotal" IsReadOnly="True"/>
+        <Button Grid.Column="2" Grid.Row="8" Content="Beregn" Margin="20,0,20,0" x:Name="BtnCalculate" Click="BtnCalculate_Click"/>
+        <Button Grid.Column="2" Grid.Row="9" Content="Gem" Margin="20,10,20,10" x:Name="BtnSave" Click="BtnSave_Click"/>
+        <DataGrid Grid.Column="1" Grid.Row="10" MinHeight="50" Grid.ColumnSpan="4" x:Name="DataGridViewOfMatches" IsReadOnly="True">
+            <DataGrid.Resources>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}" >
+                    <Setter Property="Background" Value="White" />
+                    <Setter Property="Foreground" Value="Black" />
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="BorderThickness" Value="1 1 1 1"/>
+                    <Setter Property="Margin" Value="-1,-1,0,0" />
+                    <Setter Property="Height" Value="28" />
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Billetter solgt" Binding="{Binding TicketsSold}" Width="100"/>
+                <DataGridTextColumn Header="TV kanaler" Binding="{Binding TVChannels}" Width="100"/>
+                <DataGridTextColumn Header="Besøger sportbutik" Binding="{Binding StoreVisitors}" Width="130"/>
+                <DataGridTextColumn Header="Abonnement" Binding="{Binding GymSubscriptions}" Width="100"/>
+                <DataGridTextColumn Header="Tilskuer mødt op i %" Binding="{Binding SpectatorsPercentage}" Width="130"/>
+                <DataGridTextColumn Header="Total salg" Binding="{Binding SalesTotal}" Width="130"/>
+                <DataGridTextColumn Header="Indtjening" Binding="{Binding EarningsTotal}" Width="130"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
